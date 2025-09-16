@@ -22,10 +22,11 @@ public class Todo {
         this.description = description;
     }
 
-    public Todo(int id, String title, String description, LocalDateTime created_at, LocalDateTime updated_at) {
+    public Todo(int id, String title, String description, boolean completed ,LocalDateTime created_at, LocalDateTime updated_at) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.completed=completed;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
