@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eddc371d-3a0d-4637-9303-910de88f907b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/todo/dao/TodoAppDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/todo/gui/TodoAppGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/todo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/gui/TodoAppGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/todo/gui/TodoAppGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +110,7 @@
       <workItem from="1757571477705" duration="7029000" />
       <workItem from="1757583526609" duration="731000" />
       <workItem from="1757999549873" duration="6840000" />
-      <workItem from="1758083411063" duration="11601000" />
+      <workItem from="1758083411063" duration="13285000" />
     </task>
     <servers />
   </component>

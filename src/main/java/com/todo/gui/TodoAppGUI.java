@@ -82,17 +82,18 @@ public class TodoAppGUI extends JFrame {
         gbc.anchor= GridBagConstraints.WEST;
         inputPanel.add(new JLabel("Title"),gbc); // mention the titleField->TextField we are placing inside a JPanel->inputPanel
         gbc.gridx=1;
-        gbc.fill= GridBagConstraints.HORIZONTAL;
+        gbc.fill=GridBagConstraints.HORIZONTAL; //Stretch horizontally to fill the cell’s width.
         inputPanel.add(titleField,gbc);
         gbc.gridx=0;
         gbc.gridy=1;
         inputPanel.add(new JLabel("Description"),gbc);
         gbc.gridx=1;
+        gbc.fill=GridBagConstraints.HORIZONTAL; //Stretch horizontally to fill the cell’s width.
         inputPanel.add(descriptionArea,gbc);
+        gbc.gridx=1;
+        gbc.gridy=2;
+        gbc.fill=GridBagConstraints.HORIZONTAL; //Stretch horizontally to fill the cell’s width.
+        inputPanel.add(completedCheckBox,gbc);
         add(inputPanel,BorderLayout.NORTH);
-//        gbc.gridx=1;
-//        gbc.gridy=2;
-//        inputPanel.add(new JLabel(""))
-
     }
 }
