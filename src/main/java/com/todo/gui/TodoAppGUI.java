@@ -89,11 +89,28 @@ public class TodoAppGUI extends JFrame {
         inputPanel.add(new JLabel("Description"),gbc);
         gbc.gridx=1;
         gbc.fill=GridBagConstraints.HORIZONTAL; //Stretch horizontally to fill the cell’s width.
-        inputPanel.add(descriptionArea,gbc);
+        inputPanel.add(new JScrollPane(descriptionArea),gbc);
         gbc.gridx=1;
         gbc.gridy=2;
         gbc.fill=GridBagConstraints.HORIZONTAL; //Stretch horizontally to fill the cell’s width.
         inputPanel.add(completedCheckBox,gbc);
-        add(inputPanel,BorderLayout.NORTH);
+        // BOTTON PANEL
+        JPanel buttonPanel =new JPanel(new FlowLayout()); // the flowLayout automatically  arrange the element in the left to right order it having not a enough place it will place the element in the next line
+        buttonPanel.add(addButton);
+        buttonPanel.add(deleteButton);
+        buttonPanel.add(updateButton);
+        buttonPanel.add(refreshButton);
+        //FILLTER PANEL
+        JPanel fillterPanel =new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fillterPanel.add(new JLabel("Fillter"));
+        fillterPanel.add(fillterComboBox);
+        //NORTH PANEL
+        JPanel northPanel = new JPanel(new BorderLayout());
+        northPanel.add(inputPanel,BorderLayout.CENTER);
+        northPanel.add(buttonPanel,BorderLayout.SOUTH);
+        northPanel.add(fillterPanel,BorderLayout.NORTH);
+        add(northPanel,BorderLayout.NORTH);
+
+
     }
 }
