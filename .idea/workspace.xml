@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/dao/TodoAppDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/todo/dao/TodoAppDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/gui/TodoAppGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/todo/gui/TodoAppGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/todo/model/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/todo/model/Todo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +112,7 @@
       <workItem from="1757571477705" duration="7029000" />
       <workItem from="1757583526609" duration="731000" />
       <workItem from="1757999549873" duration="6840000" />
-      <workItem from="1758083411063" duration="24573000" />
+      <workItem from="1758083411063" duration="28711000" />
     </task>
     <servers />
   </component>

@@ -128,10 +128,31 @@ public class TodoAppGUI extends JFrame {
         refreshButton.addActionListener(e -> refreshTodo());
     }
 
-    private void addTodo(){}
-    private void updateTodo(){}
-    private void deleteTodo(){}
-    private void refreshTodo(){}
+    private void addTodo(){
+        String title =titleField.getText().trim();
+        String description =descriptionArea.getText().trim();
+        boolean completed = completedCheckBox.isSelected();
+        try {
+            Todo obj1 = new Todo(title, description);
+            obj1.setCompleted(completed);
+            tododao.createTodo(obj1);
+            JOptionPane.showMessageDialog(this,"Todo added Successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+            loadTodos();
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private void updateTodo(){
+
+    }
+    private void deleteTodo(){
+
+    }
+    private void refreshTodo(){
+
+    }
 
     private void loadTodos(){
         try {

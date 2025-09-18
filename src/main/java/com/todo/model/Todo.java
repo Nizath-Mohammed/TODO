@@ -15,9 +15,8 @@ public class Todo {
         this.updated_at = LocalDateTime.now();
     }
 
-    public Todo(int id, String title, String description) {
+    public Todo(String title, String description) {
         this();
-        this.id = id;
         this.title = title;
         this.description = description;
     }
