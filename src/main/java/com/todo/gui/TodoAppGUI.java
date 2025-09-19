@@ -67,7 +67,7 @@ public class TodoAppGUI extends JFrame {
         fillterComboBox = new JComboBox<>(fillterOptions);
         fillterComboBox.addActionListener(
                 (e)->{
-                    // filter logic later
+                    filterTodos();
                 }
         );
     }
@@ -126,6 +126,7 @@ public class TodoAppGUI extends JFrame {
         updateButton.addActionListener(e -> updateTodo());
         deleteButton.addActionListener(e -> deleteTodo());
         refreshButton.addActionListener(e -> refreshTodo());
+
     }
 
     private void addTodo(){
@@ -258,6 +259,26 @@ public class TodoAppGUI extends JFrame {
             completedCheckBox.setSelected(completed);
 
 
+        }
+    }
+    private void filterTodos(){
+        String option = fillterComboBox.getSelectedItem().toString();
+        if(option.equals("All")){
+                  loadTodos();
+        }
+        else if(option.equals("Completed")){
+            try {
+                updateTable(tododao.completedTodos());
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else{
+            try {
+                updateTable(tododao.pendindTodos());
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

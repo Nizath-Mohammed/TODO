@@ -21,6 +21,11 @@ public class TodoAppDAO {
             "UPDATE todos SET title = ?, description = ?, completed = ?, updated_at = ? WHERE id = ?";
     private static final String DELETE_TODO =
             "DELETE FROM todos WHERE id = ?";
+    private static final String EXRACT_PENDING_TODO =
+            "SELECT * FROM todos WHERE completed = 0" ;
+    private static final String EXRACT_COMPLETED_TODO =
+            "SELECT * FROM todos WHERE completed = 1";
+
 
     // helper method to convert ResultSet row -> Todo object
     private Todo getTodoRow(ResultSet rs) throws SQLException {
@@ -118,6 +123,34 @@ public class TodoAppDAO {
             stmt.setInt(1, id);
             int rowAffected = stmt.executeUpdate();
             return rowAffected > 0;
+        }
+    }
+    public List<Todo> pendindTodos() throws SQLException {
+        List<Todo> todos = new ArrayList<>();
+        DatabaseConnection db = new DatabaseConnection();
+        try(Connection cn = db.getDBConnection();
+            PreparedStatement stmt = cn.prepareStatement(EXRACT_PENDING_TODO);
+            )
+        {
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                todos.add(getTodoRow(rs));
+            }
+            return todos;
+        }
+
+    }
+    public List<Todo> completedTodos() throws SQLException {
+        List<Todo> todos = new ArrayList<>();
+        DatabaseConnection db = new DatabaseConnection();
+        try (Connection cn = db.getDBConnection();
+             PreparedStatement stmt = cn.prepareStatement(EXRACT_COMPLETED_TODO);
+        ) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                todos.add(getTodoRow(rs));
+            }
+            return todos;
         }
     }
 }
