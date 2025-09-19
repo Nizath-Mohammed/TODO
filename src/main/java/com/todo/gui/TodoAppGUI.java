@@ -132,6 +132,10 @@ public class TodoAppGUI extends JFrame {
         String title =titleField.getText().trim();
         String description =descriptionArea.getText().trim();
         boolean completed = completedCheckBox.isSelected();
+        if("".equals(title)){
+//           if(title.isEmpty()): you can use this also
+            JOptionPane.showMessageDialog(this,"Title cannot be empty!","Warning",JOptionPane.WARNING_MESSAGE);
+        }
         try {
             Todo obj1 = new Todo(title, description);
             obj1.setCompleted(completed);
@@ -145,6 +149,44 @@ public class TodoAppGUI extends JFrame {
         }
     }
     private void updateTodo(){
+           int row = todoTable.getSelectedRow();
+           if(row !=-1){
+               String title =(String)todoTable.getValueAt(row,1);
+               String description =(String)todoTable.getValueAt(row,2);
+               boolean completed =(boolean)todoTable.getValueAt(row,3);
+//               titleField.getText().trim();
+//               descriptionArea.getText().trim();
+//               completedCheckBox.getAccessibleContext(completed);
+               if(title.isEmpty()){
+                   JOptionPane.showMessageDialog(this,"Title cannot be empty!","Warning",JOptionPane.WARNING_MESSAGE);
+                   return ;
+               }
+               descriptionArea.getText().trim();
+               int id = (Integer)todoTable.getValueAt(row,0);
+               try{
+                   Todo todo =tododao.getTodoById(id);
+                   if(todo!=null){
+                       todo.setTitle(titleField.getText().trim());
+                       todo.setDescription(descriptionArea.getText().trim());
+                       todo.setCompleted(completedCheckBox.isSelected());
+                       if(tododao.updateTodo(todo)){
+                           JOptionPane.showMessageDialog(this,"todo updated successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                           loadTodos();
+                       }
+                       else{
+                           JOptionPane.showMessageDialog(this,"Failed to update todos","Update error",JOptionPane.ERROR_MESSAGE);
+                       }
+                   }
+               }
+               catch(Exception e){
+                   JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
+               }
+
+           }
+           else{
+               JOptionPane.showMessageDialog(this,"Plese select rows","Warning",JOptionPane.WARNING_MESSAGE);
+           }
+
 
     }
     private void deleteTodo(){
