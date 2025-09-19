@@ -101,7 +101,7 @@ public class TodoAppDAO {
             stmt.setString(1, todo.getTitle());
             stmt.setString(2, todo.getDescription());
             stmt.setBoolean(3, todo.isCompleted());
-            stmt.setTimestamp(4, Timestamp.valueOf(todo.getUpdated_at()));
+            stmt.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
             stmt.setInt(5, todo.getId());
 
             int rowAffected = stmt.executeUpdate();
