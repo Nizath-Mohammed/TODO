@@ -114,9 +114,9 @@ public class TodoAppDAO {
         DatabaseConnection db = new DatabaseConnection();
         try (Connection cn = db.getDBConnection();
              PreparedStatement stmt = cn.prepareStatement(DELETE_TODO);
-             ){
+             ) {
             stmt.setInt(1, id);
-            int rowAffected =stmt.executeUpdate();
+            int rowAffected = stmt.executeUpdate();
             return rowAffected > 0;
         }
     }

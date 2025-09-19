@@ -185,6 +185,7 @@ public class TodoAppGUI extends JFrame {
            }
            else{
                JOptionPane.showMessageDialog(this,"Plese select rows","Warning",JOptionPane.WARNING_MESSAGE);
+               return ;
            }
 
 
@@ -194,8 +195,17 @@ public class TodoAppGUI extends JFrame {
         if(row !=-1){
             int id = (Integer)todoTable.getValueAt(row,0);
             try{
-                tododao.deleteRow(id);
-                loadTodos();
+                try{
+                    tododao.deleteRow(id);
+                    loadTodos();
+                    titleField.setText("");
+                    descriptionArea.setText("");
+                    completedCheckBox.setSelected(false);
+                }
+                catch(Exception e){
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
+                }
+
             }
             catch(Exception e){
                 JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
