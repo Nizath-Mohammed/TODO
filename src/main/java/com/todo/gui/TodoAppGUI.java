@@ -206,7 +206,7 @@ public class TodoAppGUI extends JFrame {
         }
     }
     private void refreshTodo(){
-
+        loadTodos();
     }
 
     private void loadTodos(){
