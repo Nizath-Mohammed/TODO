@@ -190,7 +190,20 @@ public class TodoAppGUI extends JFrame {
 
     }
     private void deleteTodo(){
-
+        int row =todoTable.getSelectedRow();
+        if(row !=-1){
+            int id = (Integer)todoTable.getValueAt(row,0);
+            try{
+                tododao.deleteRow(id);
+                loadTodos();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this,e.getMessage(),"Failure",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Plese select rows","Warning",JOptionPane.WARNING_MESSAGE);
+        }
     }
     private void refreshTodo(){
 

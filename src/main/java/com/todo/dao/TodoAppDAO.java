@@ -19,6 +19,8 @@ public class TodoAppDAO {
 
     private static final String UPDATE_TODO =
             "UPDATE todos SET title = ?, description = ?, completed = ?, updated_at = ? WHERE id = ?";
+    private static final String DELETE_TODO =
+            "DELETE FROM todos WHERE id = ?";
 
     // helper method to convert ResultSet row -> Todo object
     private Todo getTodoRow(ResultSet rs) throws SQLException {
@@ -105,6 +107,16 @@ public class TodoAppDAO {
             stmt.setInt(5, todo.getId());
 
             int rowAffected = stmt.executeUpdate();
+            return rowAffected > 0;
+        }
+    }
+    public boolean deleteRow(int id)     throws SQLException     {
+        DatabaseConnection db = new DatabaseConnection();
+        try (Connection cn = db.getDBConnection();
+             PreparedStatement stmt = cn.prepareStatement(DELETE_TODO);
+             ){
+            stmt.setInt(1, id);
+            int rowAffected =stmt.executeUpdate();
             return rowAffected > 0;
         }
     }
