@@ -29,27 +29,31 @@ Repository for TODO.
 - List key features here.
 
 ## Tech Stack
-- List primary technologies used.
+- Java (Maven)
 
 ## Getting Started
 Prerequisites:
 - Git
-- Runtime(s) as applicable (e.g., Node.js, Python, etc.)
+- Java 17+, Maven 3.9+
 
 ## Installation
 `ash
 git clone https://github.com/Nizath-Mohammed/TODO.git
 cd TODO
-# add setup steps here
 `
+
+`ash
+mvn clean install
+`
 
 ## Usage
 `ash
-# add usage commands here
-`
+java -jar target/*.jar
+`
 
 ## Scripts
-- Document useful scripts or commands.
+- mvn test
+- mvn spring-boot:run (if Spring Boot)
 
 ## Roadmap
 - [ ] Planned improvements
